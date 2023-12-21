@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,maximum-scale=1">
-	<title>P2PBC22-23 Battleship Project @ University of Pisa</title>
+	<title>SPACE BATTLESHIP on ETH BLOCKCHAIN</title>
 	<meta name="description" content="Battleboat.js: A JavaScript AI that beats humans at battleship.">
 	<meta name="keywords" content="Battleboat.js, battleship, AI, robot, JavaScript">
 	<meta name="google" content="notranslate">
@@ -16,30 +16,39 @@
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png" />
 
-	<link rel="author" href="https://plus.google.com/+BillMei" />
-	<link rel="publisher" href="https://plus.google.com/+BillMei" />
 
 	<link href="./css/style.css"  rel="stylesheet" media="all"/>
+	<style>
+		#second-page {
+            display: none;
+        }
+	</style>
 
 </head>
 <body>
+<div id="clock"></div>
 <div class="container">
-	<img src="./images/cherubino.png" alt="Unipi" class="logo">
-	<h2>P2PBC 22-23 Battleship Project</h2>
-	<h3><i>Hit and Sunk!</i></h3>
+	<h2>SPACE BATTLESHIP ON ETH BLOCKCHAIN</h2>
 	<p class="tagline" id="wallet-info">Wallet info:</p>
-    <p class="tagline" id="game-info"><strong>Match ID</strong>: Waiting game info...</p>
-    <p class="tagline" id="betted-info"><strong>Betted ETH </strong>: Waiting game info...</p>
+    <p class="tagline" id="game-info"><strong>Match ID</strong>:...</p>
+    <p class="tagline" id="betted-info"><strong>ETH amount </strong>:...</p>
 	<div id="modalContainer"></div>
 
+	<div id="welcome-page">
+		<h1>WELCOME TO SPACE BATTLESHIP</h1>
+		<p>Let's play with Rick and Morty in a battleship game on ETH blockchain!</p>
+		<div id="welcome-buttons">
+			<button id="exit-button">Exit</button>
+			<button id="access-page-button">Play!</button>
+		</div>
+	</div>
+<div id="second-page">
+	<div class="container-init">
 
-
-
-    <div class="container-init">
         <div id="buttons-init">
-          <button id="newGameBtn">New Match</button>
-          <button id="joinByIdBtn">Join by ID</button>
-          <button id="joinRandomBtn">Join Random</button>
+          <button id="newGameBtn">New game </button>
+          <button id="joinByIdBtn">Join by id</button>
+          <button id="joinRandomBtn">Radom game</button>
         </div>
         <div id="formContainer" class="hidden">
           <form id="betForm">
@@ -66,7 +75,8 @@
           <p>Searching random game to join...</p>
         </div>
       </div>
-    <p><strong>How to play Battleship on Ethereum?</strong></p>
+	
+   
 	<ol class="instructions">
 		<li id="step1">Decide the amount of ETH to bet with the opponent</li>
 		<li id="step2">Place your ships on your map</li>
@@ -74,6 +84,7 @@
 		<li id="step4">The opponent will fire on your ships</li>
 		<li id="step5">At each turn, <i>before attack</i>, submit the <strong>proof</strong> to prove that you're not cheating</li>
 	</ol>
+
 	<div class="game-container" id="game-container" hidden>
 		<div id="restart-sidebar" class="hidden">
 			<h2>Try Again</h2>
@@ -81,11 +92,11 @@
 		</div><div id="roster-sidebar">
 			<h2>Place Your Ships</h2>
 			<ul class="fleet-roster">
-				<li id="patrolboat">Patrol Boat</li>
-				<li id="submarine">Submarine</li>
+				<li id="patrolboat">Asmov's ship</li>
+				<li id="submarine">Wormhole craft</li>
 				<li id="destroyer">Destroyer</li>
-				<li id="battleship">Battleship</li>
-				<li id="carrier">Aircraft Carrier</li>
+				<li id="battleship">Deathstar</li>
+				<li id="carrier">Warship</li>
 			</ul>
 			<button id="rotate-button" data-direction="0">Rotate Ship</button>
 			<button id="start-game" class="hidden">Start Match</button>
@@ -105,8 +116,7 @@
 			<div class="grid computer-player" id="computerGrid"><span class="no-js">Please enable JavaScript to play this game</span></div>
 		</div>
 	</div>
-	
-	<p>Original UI from <a href="https://github.com/billmei/battleboat">Bill Mei</a>. Modified logic and UI for <a href="https://elearning.di.unipi.it/course/view.php?id=324">P2PBC@Unipi</a></p>
+</div>	
 </div>
 
 
@@ -140,10 +150,35 @@ if (!DEBUG_MODE) {
 
 });
 	</script> 
-
+<script src="./js/clock.js"></script>
 <script src="js/web3.min.js"></script>
 <script type="module" src="js/truffle-contract.js"></script> 
 <script src="./js/battleboat.js"></script>
+<script>
+	// Script per gestire la transizione tra le pagine
+document.addEventListener("DOMContentLoaded", function () {
+    // Riferimenti agli elementi
+    var welcomePage = document.getElementById("welcome-page");
+    var accessPageButton = document.getElementById("access-page-button");
+    var secondPage = document.getElementById("second-page");
+	var exitButton = document.getElementById("exit-button");
+    // Gestore dell'evento clic sul bottone "Accedi a questa Pagina"
+    accessPageButton.addEventListener("click", function () {
+        // Nascondi la pagina di benvenuto
+        welcomePage.style.display = "none";
+        // Mostra la seconda pagina
+        secondPage.style.display = "block";
+    });
+	exitButton.addEventListener("click", function () {
+        // Chiudi la finestra solo se la finestra è stata aperta tramite JavaScript
+        if (window.location.href.startsWith("http")) {
+            window.close();
+        } else {
+            console.log("Impossibile chiudere la finestra. Potrebbe essere stata aperta manualmente.");
+        }
+    });
+});
+</script>
 <span class="prefetch" id="prefetch1"></span>
 <span class="prefetch" id="prefetch2"></span>
 <span class="prefetch" id="prefetch3"></span>

@@ -675,7 +675,7 @@ var contract = (function(module) {
         throw new Error(this.contract_name + " has no network id set, cannot lookup artifact data. Either set the network manually using " + this.contract_name + ".setNetwork(), run " + this.contract_name + ".detectNetwork(), or use new(), at() or deployed() as a thenable which will detect the network automatically.");
       }
 
-      // TODO: this might be bad; setting a value on a get.
+   
       if (this._json.networks[network_id] == null) {
         throw new Error(this.contract_name + " has no network configuration for its current network id (" + network_id + ").");
       }
@@ -811,9 +811,6 @@ var Contract = require("./contract.js");
 var contract = function(options) {
   options = Schema.normalizeOptions(options);
   var binary = Schema.generateBinary(options, {}, {dirty: false});
-
-  // Note we don't use `new` here at all. This will cause the class to
-  // "mutate" instead of instantiate an instance.
   return Contract.clone(binary);
 };
 
@@ -1338,35 +1335,7 @@ function fromByteArray (uint8) {
     return (this.red ? '<BN-R: ' : '<BN: ') + this.toString(16) + '>';
   };
 
-  /*
 
-  var zeros = [];
-  var groupSizes = [];
-  var groupBases = [];
-
-  var s = '';
-  var i = -1;
-  while (++i < BN.wordSize) {
-    zeros[i] = s;
-    s += '0';
-  }
-  groupSizes[0] = 0;
-  groupSizes[1] = 0;
-  groupBases[0] = 0;
-  groupBases[1] = 0;
-  var base = 2 - 1;
-  while (++base < 36 + 1) {
-    var groupSize = 0;
-    var groupBase = 1;
-    while (groupBase < (1 << BN.wordSize) / base) {
-      groupBase *= base;
-      groupSize += 1;
-    }
-    groupSizes[base] = groupSize;
-    groupBases[base] = groupBase;
-  }
-
-  */
 
   var zeros = [
     '',

@@ -3,8 +3,10 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	background-color: #c6c8c8;
 	min-width: 860px;
+	background-image: url('../images/rickandmortybg.jpg');
+	background-size: cover;
+	
 }
 .hidden {
 	display: none;
@@ -12,8 +14,54 @@ html, body {
   
 h1, h2, h3, h4, h5, h6, p, li, span {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	color: #222222;
+	color: #ffffff;
 }
+
+#welcome-buttons {
+    margin-top: 20px;
+}
+
+#exit-button,
+#access-page-button {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 1.4em;
+    color: #ffffff;
+    background-color: #2bec28;
+    border: none;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#exit-button:hover,
+#access-page-button:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+	font-size: 1.4em;
+}
+
+#newGameBtn,
+#joinByIdBtn,
+#joinRandomBtn {
+    background-color: #2bec28;
+	color: #ffffff;
+	font-size: 1.4em;
+}
+
+#exit-button:active,
+#access-page-button:active {
+    background-color: #99C2E1;
+}
+#clock {
+    position: fixed;
+    top: 10px; /* Regola la distanza dalla cima */
+    right: 10px; /* Regola la distanza dalla destra */
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 2.2em;
+    color: #2bec28
+}
+
+
 a {
 	color: #222222;
 	font-weight: bold;
@@ -30,7 +78,7 @@ button {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
 	color: #EEEEEE;
-	background-color: #25567B;
+	background-color: #2bec28;
 	border: none;
 	margin: 1em auto 0 auto;
 	padding: 10px;
@@ -46,7 +94,6 @@ input[type=text], input[type=number] {
 	background-repeat: no-repeat;
 	padding-left: 40px;
 	border-radius: 5px;
-
 
 
   }
@@ -75,7 +122,7 @@ input[type=button], input[type=submit], input[type=reset] {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
 	color: #EEEEEE;
-	background-color: #25567B;
+	background-color: #2bec28;
 	border: none;
 	margin: 1em auto 0 auto;
 	padding: 10px;
@@ -88,24 +135,24 @@ input[type=button], input[type=submit], input[type=reset] {
 		background-color: #ffffff;
 	}
 	button:active {
-		background-color: #99C2E1;
+		background-color: #2bec28;
 	}
 	#start-game,
 	#place-randomly,
 	#restart-game {
 		position: relative;
 		color: #FFFFFF;
-		background-color: #FF9200;
+		background-color: #2bec28;
 	}
 		#start-game:hover,
 		#place-randomly:hover,
 		#restart-game:hover {
-			background-color: #FFB655;
+			background-color: #2bec28;
 		}
 		#start-game:active,
 		#place-randomly:active,
 		#restart-game:active {
-			background-color: #FFCE8E;
+			background-color: #2bec28;
 		}
 
 #prefetch1 {
@@ -130,6 +177,8 @@ input[type=button], input[type=submit], input[type=reset] {
 		display: inline-block;
 		text-align: left;
 		margin: 0 auto 3em auto;
+		color: rgba(0, 0, 0, 0);
+		opacity:0;
 	}
 
 .container {
@@ -144,7 +193,7 @@ input[type=button], input[type=submit], input[type=reset] {
 		width: 150px;
 		padding: 20px;
 		margin: 0;
-		background-color: #EEEEEE;
+		background-color: #010101;
 		position: absolute;
 		top: 4.5em;
 		-webkit-border-radius: 5px;
@@ -269,7 +318,7 @@ input[type=button], input[type=submit], input[type=reset] {
 		background-repeat: no-repeat;
 	}
 	.grid-hit, .grid-hit:hover, .human-player .grid-hit:hover {
-		background-color: #ac0a0a;
+		background-color: #12ea07;
 		background-image: url('../images/hit.gif'); /* Fallback */
 		background-image: url('../images/hit.gif');
 		background-size: contain;
@@ -287,8 +336,8 @@ input[type=button], input[type=submit], input[type=reset] {
 		content: "\2193";
 		font-weight: bold;
 		font-size: 75px;
-		color: #FF9200;
-		text-shadow: 0 0 5px #FF9200;
+		color: #12ea07;;
+		text-shadow: 0 0 5px #12ea07;;
 		position: absolute;
 		width: 100px;
 		height: 100px;
@@ -371,4 +420,8 @@ input[type=button], input[type=submit], input[type=reset] {
 		-o-transform: translateY(0);
 		transform: translateY(0);
 	}
+
+
+
+	
 }
